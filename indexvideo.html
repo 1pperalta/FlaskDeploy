@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+</head>
+
+<body>
+ <div class="login">
+    <h1>Video Game Price Prediction</h1>
+ 
+    
+    <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict') }}" method="post">
+        <select name="videojuego" required="required">
+            <option value="" disabled selected>Seleccione Videojuego</option>
+            <option value="'Mass Effect'">Mass Effect</option>
+            <option value="'Sim City'">Sim City</option>
+            <option value="'Dead Space'">Dead Space</option>
+            <option value="'Battlefield'">Battlefield</option>
+            <option value="'KOA: Reckoning'">KOA: Reckoning</option>
+            <option value="'Crysis'">Crysis</option>
+            <option value="'F1'">F1</option>
+            <option value="'Fifa'">FIFA</option>
+        </select>
+        <input type="number" name="Edad" placeholder="Edad" required="required" />
+        <select name="Sexo" required="required">
+            <option value="" disabled selected>Seleccione Sexo</option>
+            <option value="Mujer">Mujer</option>
+            <option value="Hombre">Hombre</option>
+        </select>
+        <select name="Plataforma" required="required">
+            <option value="" disabled selected>Seleccione Plataforma</option>
+            <option value="'Play Station'">Play Station</option>
+            <option value="'Xbox'">Xbox</option>
+            <option value="Otros">Otros</option>
+            <option value="PC">PC</option>
+        </select>
+        <select name="Consumidor_habitual" required="required">
+            <option value="" disabled selected>¿Consumidor habitual?</option>
+            <option value="True">Sí</option>
+            <option value="False">No</option>
+        </select>
+
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predecir</button>
+    </form>
+
+    <br>
+    <br>
+    {{ prediction_text }}
+
+ </div>
+</body>
+</html>
